@@ -1,0 +1,34 @@
+*{
+margin:0%;
+padding:0%;
+box-sizing: border-box;
+}
+html,body{
+width: 100%;
+height: 100%;
+}
+body{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@keyframes breath{
+    from{
+        height: 1px;
+        width: 1px;
+        border-radius: 50%;
+        background: conic-gradient(red,orange,yellow,green,skyblue,blue,violet,deeppink,pink,red);
+
+    }
+    to{
+        height: 800px;
+        width: 800px;
+        border-radius: 50%;
+        background: conic-gradient(red,orange,yellow,green,skyblue,blue,violet,deeppink,pink,red);
+    }
+}
+
+#box{
+    animation: breath 1s infinite forwards alternate;
+}
