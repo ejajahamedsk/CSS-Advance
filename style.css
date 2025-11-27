@@ -1,42 +1,78 @@
 *{
-margin:0%;
-padding:0%;
-box-sizing: border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
+
 html,body{
-width: 100%;
-height: 100%;
+  width:100%;
+  height:100%;
 }
+
 body{
-   background-color: black;
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
+  overflow:hidden;
 }
-@keyframes sun{
-    from{
-        height: 300px;
-        width: 300px;
-        background: white;
-        border-radius: 50%;
-        background: radial-gradient(orange 10%,red 70%);
-        box-shadow: 0 0 150px red;
-        position: absolute;
-        left: -30%;
-        top: -150px;
-    }
-    to{
-        height: 300px;
-        width: 300px;
-        background: white;
-        border-radius: 50%;
-        background: radial-gradient(orange 10%,red 70%);
-        box-shadow: 0 0 150px red;
-        position: absolute;
-        left: 105%;
-        top: -150px;
-    }
+
+.sky{
+  width:100%;
+  height:100vh;
+  position:relative;
+  animation: skyDay 12s linear infinite;
 }
-#box{
-    animation: sun 5s infinite alternate;
+
+/* SUN STYLE */
+#sun{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  position:absolute;
+  left:-20%;
+  bottom:-80px;
+
+  background: radial-gradient(circle at center,
+    #ffb520 0%,
+    #ff7700 40%,
+    #ff4800 80%
+  );
+  box-shadow:0 0 80px #ff0000;
+
+  animation: sunDay 12s linear infinite;
+}
+
+/* SUN PATH = SUNRISE → NOON → SUNSET */
+@keyframes sunDay {
+  0%{
+    transform: translate(0vw, 0px);          /* sunrise: left + low */
+                                  /* thoda faint, just rising */
+  }
+  10%{
+   
+  }
+  50%{
+    transform: translate(50vw, -350px);      /* noon: center + high */
+  
+  }
+  100%{
+    transform: translate(110vw, 0px);        /* sunset: right + low */
+
+  }
+}
+
+/* SKY COLOR CHANGE = MORNING → DAY → EVENING */
+@keyframes skyDay {
+  0%{
+    background: linear-gradient(#020b30, #f57c00);  /* dark to orange: sunrise */
+  }
+  25%{
+    background: linear-gradient(#00aeff, #abe4ff);  /* morning blue */
+  }
+  50%{
+    background: linear-gradient(#00aeff, #c8eeff);  /* bright noon sky */
+  }
+  75%{
+    background: linear-gradient(#ffb74d, #ff8a65);  /* evening orange */
+  }
+  100%{
+    background: linear-gradient(#1a237e, #000000);  /* after sunset: dark */
+  }
 }
