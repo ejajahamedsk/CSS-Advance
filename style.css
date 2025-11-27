@@ -10,7 +10,7 @@ height: 100%;
 body{
    background-color: black;
         display: flex;
-        align-items: flex-end;
+        align-items: flex-start;
         justify-content: flex-start;
 }
 @keyframes sun{
@@ -23,6 +23,7 @@ body{
         box-shadow: 0 0 150px red;
         position: absolute;
         left: -30%;
+        top: -150px;
     }
     to{
         height: 300px;
@@ -33,6 +34,7 @@ body{
         box-shadow: 0 0 150px red;
         position: absolute;
         left: 105%;
+        top: -150px;
     }
 }
 #box{
